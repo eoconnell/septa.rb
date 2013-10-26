@@ -1,7 +1,7 @@
-require 'resourceful'
+require 'net/http'
 
 module Septa
-  class SeptaAPI
+  class API
     def self.api_host 
       "www3.septa.org/hackathon"
     end
@@ -22,7 +22,7 @@ module Septa
     end
 
     def self.get url
-      Resourceful.get url
+      Net::HTTP.get_response URI url
     end
 
     private_class_method :get
